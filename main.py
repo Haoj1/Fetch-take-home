@@ -21,14 +21,12 @@ def mask_pii(data):
     if app_version.isdigit():
         app_version = int(app_version)
     else:
-        app_version = 0  # 或者你可以设置其他默认值，或者引发异常
+        app_version = 0
 
     create_date_str = data.get("create_date", "")
     try:
-        # 尝试将日期字符串转换为日期对象
         create_date = datetime.strptime(create_date_str, "%Y-%m-%d")
     except ValueError:
-        # 处理日期格式不正确的情况
         create_date = None
 
     masked_data = {
@@ -66,7 +64,6 @@ def delete_message_from_sqs(queue_url, receipt_handle):
 
 
 def create_user_logins_table(cursor):
-    # SQL 创建表格语句
     create_table_sql = """
     CREATE TABLE IF NOT EXISTS user_logins (
         user_id varchar(128),
@@ -78,8 +75,6 @@ def create_user_logins_table(cursor):
         create_date date
     );
     """
-
-    # 执行 SQL 命令创建表格
     cursor.execute(create_table_sql)
 
 
@@ -89,7 +84,6 @@ def process_sqs_messages():
         host=db_host, port=db_port, database=db_name, user=db_user, password=db_password)
     cursor = conn.cursor()
 
-    # 创建 user_logins 表格（如果不存在）
     create_user_logins_table(cursor)
 
     while True:
