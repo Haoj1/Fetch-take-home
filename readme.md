@@ -9,7 +9,8 @@
 - [Getting Started](#getting-started)
   - [1. Clone the Repository](#1-clone-the-repository)
   - [2. Start Docker Containers](#2-start-docker-containers)
-  - [3. Run the Application](#4-run-the-application)
+  - [3. Run the Application](#3-run-the-application)
+  - [4. Test local SQL](#4-test-local-SQL)
 
 ## Introduction
 
@@ -52,3 +53,9 @@ Now you can run the Python application that reads from the AWS SQS Queue, masks 
 python main.py
 ```
 The application will continuously read messages from the SQS Queue, process them, and insert them into the PostgreSQL database.
+
+### 4. Test local SQL
+```bash
+psql -d postgres -U postgres -p 5432 -h localhost -W
+postgres=# select * from user_logins;
+```
