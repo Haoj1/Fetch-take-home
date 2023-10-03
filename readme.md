@@ -29,7 +29,7 @@ Before running this application, you'll need to install the following prerequisi
 You'll need to install Python dependencies using pip:
 
 ```bash
-pip install psycopg2-binary l awscli-local
+pip install psycopg2-binary awscli-local
 ```
 
 ## Getting Started
