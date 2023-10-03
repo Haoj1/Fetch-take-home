@@ -36,7 +36,7 @@ pip install psycopg2-binary l awscli-local
 ### 1. Clone the Repository
 
 ```bash
-git clone
+git clone https://github.com/Haoj1/Fetch-take-home.git
 cd Fetch-take-home
 ```
 ### 2. Start Docker Containers
