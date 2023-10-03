@@ -59,3 +59,4 @@ The application will continuously read messages from the SQS Queue, process them
 psql -d postgres -U postgres -p 5432 -h localhost -W
 postgres=# select * from user_logins;
 ```
+Then we can see there are records of userlogin in database table
